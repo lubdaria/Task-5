@@ -9,39 +9,42 @@ let fibonacciNumbers = findFibonacciNumbers(number);
 console.log(fibonacciNumbers);
 
 function findFibonacciNumbers(num){
+
+  if(num === 0){
+    return 0;
+  } 
+
+  let x = 0; 
+  let y = 1; 
+
+  for (let i = 1; i < num; i++) {
+    let j = x + y;
+    x = y;
+    y = j;
+  }
+  return y;
+}
+
+
+
+// Рекурсія
+
+let factorialNumber = Number(prompt('Enter the factorial number', 2));
+let fibonacciNumber = showFibonacciNumbers(factorialNumber);
+console.log(fibonacciNumber);
+
+function showFibonacciNumbers(num){
   let x = 0;
   let y = 1;
 
-  for (let i = 0; i <= num; i++) {
-    if(i % 2 == 0){
-      y = x + y;
-    } 
-    else {
-      x = x + y;
-    }
-  }
-  
-  if(num % 2 == 0){
+  if(num === 0){
     return x;
   } 
-  else {
+  else if(num === 1){
     return y;
+  } 
+  else {
+    return showFibonacciNumbers(num - 1) + showFibonacciNumbers(num - 2);
   }
-  
 }
 
-// let number = Number(prompt('Enter the factorial number', 2));
-// let fibonacciNumbers = findFibonacciNumbers(number);
-// console.log(fibonacciNumbers);
-
-// function findFibonacciNumbers(num, x, y){
-//   let x = 0;
-//   let y = 1;
-
-//   if(num % 2 == 0){
-//     return y = y + findFibonacciNumbers(num - 1, x);
-//   } 
-//   else {
-//     return x = x + findFibonacciNumbers(num - 1, y);
-//   }
-// }

@@ -34,17 +34,31 @@ let fibonacciNumber = showFibonacciNumbers(factorialNumber);
 console.log(fibonacciNumber);
 
 function showFibonacciNumbers(num){
-  let x = 0;
-  let y = 1;
-
-  if(num === 0){
-    return x;
-  } 
-  else if(num === 1){
-    return y;
-  } 
-  else {
-    return showFibonacciNumbers(num - 1) + showFibonacciNumbers(num - 2);
-  }
+  return num === 0 || num === 1 ? num : showFibonacciNumbers(num - 1) + showFibonacciNumbers(num - 2);
 }
+
+
+// Сума чисел масиву
+
+let numbersArray = [1, 2, 3, 4, 6];
+
+console.log(showNumbersSum(numbersArray));
+
+function showNumbersSum(num){
+  let result = 0;
+  
+  for(let i = 0; i < num.length; i++){
+    result = result + num[i];
+  }
+  return result;
+}
+
+
+// Рекурсія 
+
+let showNumbersArraySum = array => array.length === 1 ? array[0] : array.pop() + showNumbersArraySum(array);
+let num = showNumbersArraySum(numbersArray);
+console.log(num);
+
+
 
